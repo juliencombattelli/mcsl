@@ -34,8 +34,8 @@ jobs:
           - os: windows-latest
             name: Windows MSVC
             artifact: windows-msvc
-            compiler: cl
-            extra_cmake_args: -G "NMake Makefiles"
+            compiler-c: cl
+            compiler-cxx: cl
         build_type: [Release, Debug]
 
     name: ${{ matrix.config.name }} - ${{ matrix.build_type }}
