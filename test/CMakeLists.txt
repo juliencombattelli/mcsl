@@ -1,0 +1,13 @@
+add_subdirectory(unit)
+
+if (MCSL_ENABLE_FUZZING)
+    if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+        if(CMAKE_CXX_COMPILER_VERSION VERSION_GREATER_EQUAL 12)
+            add_subdirectory(fuzzy)
+        else()
+            message(WARNING "CXX compiler version is less than Clang 12, fuzzy tests will not be compiled")
+        endif()
+    else()
+        message(WARNING "CXX compiler is not Clang, fuzzy tests will not be compiled")
+    endif()
+endif()
