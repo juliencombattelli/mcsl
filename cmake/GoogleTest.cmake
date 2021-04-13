@@ -10,4 +10,6 @@ FetchContent_Declare(
     GIT_SHALLOW     TRUE
 )
 
+set(gtest_force_shared_crt TRUE)
+
 FetchContent_MakeAvailable(googletest)
