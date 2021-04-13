@@ -28,7 +28,7 @@ MCSL supports the following platforms:
 
 ### Requirements
 
-This project requires CMake 3.14+ and a C99 compliant compiler to build the source code.
+This project requires CMake 3.15+ and a C99 compliant compiler to build the source code.
 Additionally, a C++17 compliant compiler is needed to build the tests.
 To build the fuzzy tests, Clang 12+ is mandatory.
 

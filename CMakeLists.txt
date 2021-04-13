@@ -1,4 +1,5 @@
-cmake_minimum_required(VERSION 3.14)
+# CMake 3.15 needed for MSVC_RUNTIME_LIBRARY target property
+cmake_minimum_required(VERSION 3.15)
 project(mcsl)
 
 option(MCSL_ENABLE_TESTING "Enable the build of the tests" ON)
@@ -12,6 +13,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_library(mcsl_string_view src/char_traits.c src/string_view.c)
 target_include_directories(mcsl_string_view PUBLIC include)
+set_target_properties(mcsl_string_view PROPERTIES MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 
 add_library(mcsl::string_view ALIAS mcsl_string_view)
 
