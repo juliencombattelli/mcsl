@@ -10,6 +10,7 @@ FetchContent_Declare(
     GIT_SHALLOW     TRUE
 )
 
-set(gtest_force_shared_crt TRUE)
+set(gtest_force_shared_crt ON CACHE INTERNAL "")
+set(INSTALL_GTEST OFF CACHE INTERNAL "")
 
 FetchContent_MakeAvailable(googletest)
