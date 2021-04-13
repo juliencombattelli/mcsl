@@ -11,9 +11,13 @@ set(CMAKE_C_EXTENSIONS OFF)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-add_library(mcsl_string_view src/char_traits.c src/string_view.c)
+add_library(mcsl_string_view
+    include/mcsl/common.h include/mcsl/string_view.h
+    src/char_traits.h src/char_traits.c src/string_view.c
+)
 target_include_directories(mcsl_string_view PUBLIC include)
-set_target_properties(mcsl_string_view PROPERTIES MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+
+install(TARGETS mcsl_string_view)
 
 add_library(mcsl::string_view ALIAS mcsl_string_view)
 
