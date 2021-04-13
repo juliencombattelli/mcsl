@@ -68,8 +68,9 @@ jobs:
           cmake --build build --config ${{ matrix.build_type }}
 
       - name: Run tests
+        working-directory: build
         run: |
-          cmake --build build --config ${{ matrix.build_type }} --target test
+          ctest -C ${{ matrix.build_type }}
 
       - name: Install Strip
         run: |
