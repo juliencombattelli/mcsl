@@ -1,7 +1,7 @@
-include(${CMAKE_SOURCE_DIR}/cmake/Fmtlib.cmake)
+include(${PROJECT_SOURCE_DIR}/cmake/Fmtlib.cmake)
 
 add_library(string_view_fuzzy_test INTERFACE)
-target_include_directories(string_view_fuzzy_test INTERFACE ${CMAKE_CURRENT_LIST_DIR})
+target_include_directories(string_view_fuzzy_test INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
 target_compile_options(string_view_fuzzy_test INTERFACE -fsanitize=fuzzer,undefined,address)
 target_link_options(string_view_fuzzy_test INTERFACE -coverage -fsanitize=fuzzer,undefined,address)
 target_link_libraries(string_view_fuzzy_test INTERFACE Mcsl::StringView fmt::fmt-header-only)
