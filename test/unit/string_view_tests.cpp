@@ -46,7 +46,7 @@ TEST_F(string_view_base, sv_find__not_found)
 {
     mcsl_sv lde = mcsl_sv_make_from_c_str("lde");
     size_t lde_index = mcsl_sv_find(sv, lde);
-    ASSERT_EQ(lde_index, sv_npos);
+    ASSERT_EQ(lde_index, mcsl_npos);
 }
 
 TEST_F(string_view_base, sv_rfind__found)

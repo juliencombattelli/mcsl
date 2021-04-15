@@ -14,8 +14,6 @@ typedef struct mcsl_string_view {
 
 typedef mcsl_string_view mcsl_sv;
 
-const size_t sv_npos = (size_t)-1;
-
 mcsl_sv mcsl_sv_make_from_c_str(const char* str);
 
 mcsl_sv mcsl_sv_make_from_buffer(const char* buffer, size_t size);
