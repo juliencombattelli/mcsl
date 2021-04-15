@@ -4,7 +4,7 @@ add_library(string_view_fuzzy_test INTERFACE)
 target_include_directories(string_view_fuzzy_test INTERFACE ${CMAKE_CURRENT_LIST_DIR})
 target_compile_options(string_view_fuzzy_test INTERFACE -fsanitize=fuzzer,undefined,address)
 target_link_options(string_view_fuzzy_test INTERFACE -coverage -fsanitize=fuzzer,undefined,address)
-target_link_libraries(string_view_fuzzy_test INTERFACE mcsl::string_view fmt::fmt-header-only)
+target_link_libraries(string_view_fuzzy_test INTERFACE Mcsl::StringView fmt::fmt-header-only)
 
 set(MCSL_FUZZY_TEST_MAX_DURATION "10" CACHE STRING "Maximal total time in seconds to run each fuzzy test")
 
