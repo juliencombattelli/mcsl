@@ -1,6 +1,5 @@
-# CMake 3.15 needed for MSVC_RUNTIME_LIBRARY target property
 cmake_minimum_required(VERSION 3.15)
-project(mcsl)
+project(Mcsl VERSION 0.1.0)
 
 option(MCSL_ENABLE_TESTING "Enable the build of the tests" ON)
 option(MCSL_ENABLE_FUZZING "Enable the build of the fuzzy tests" OFF)
@@ -25,3 +24,4 @@ if(MCSL_ENABLE_TESTING)
     enable_testing()
     add_subdirectory(test)
 endif()
+
