@@ -38,6 +38,8 @@ target_include_directories(mcsl_string_view
 )
 add_library(${PROJECT_NAME}::StringView ALIAS mcsl_string_view)
 
+install(TARGETS mcsl_string_view)
+
 ################################################################################
 ### Test execution
 ################################################################################
