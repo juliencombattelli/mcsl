@@ -44,7 +44,11 @@ bool mcsl_sv_are_equal(mcsl_sv str1, mcsl_sv str2);
 
 bool mcsl_sv_is_lesser_than(mcsl_sv str1, mcsl_sv str2);
 
+bool mcsl_sv_is_lesser_or_equal_than(mcsl_sv str1, mcsl_sv str2);
+
 bool mcsl_sv_is_greater_than(mcsl_sv str1, mcsl_sv str2);
+
+bool mcsl_sv_is_greater_or_equal_than(mcsl_sv str1, mcsl_sv str2);
 
 bool mcsl_sv_starts_with(mcsl_sv str, mcsl_sv prefix);
 
@@ -56,6 +60,8 @@ bool mcsl_sv_ends_with_char(mcsl_sv str, char suffix);
 
 bool mcsl_sv_contains(mcsl_sv str, mcsl_sv substr);
 
+bool mcsl_sv_contains_char(mcsl_sv str, char c);
+
 size_t mcsl_sv_find(mcsl_sv str, mcsl_sv substr);
 
 size_t mcsl_sv_find_from_position(mcsl_sv str, size_t pos, mcsl_sv substr);
@@ -66,13 +72,23 @@ size_t mcsl_sv_rfind(mcsl_sv str, mcsl_sv substr);
 
 size_t mcsl_sv_rfind_from_position(mcsl_sv str, size_t pos, mcsl_sv substr);
 
+size_t mcsl_sv_rfind_char_from_position(mcsl_sv str, size_t pos, char c);
+
 size_t mcsl_sv_find_first_of(mcsl_sv str, mcsl_sv chars);
+
+size_t mcsl_sv_find_first_char(mcsl_sv str, char c);
 
 size_t mcsl_sv_find_first_not_of(mcsl_sv str, mcsl_sv chars);
 
+size_t mcsl_sv_find_first_char_different(mcsl_sv str, char c);
+
 size_t mcsl_sv_find_last_of(mcsl_sv str, mcsl_sv chars);
 
+size_t mcsl_sv_find_last_char(mcsl_sv str, char c);
+
 size_t mcsl_sv_find_last_not_of(mcsl_sv str, mcsl_sv chars);
+
+size_t mcsl_sv_find_last_char_different(mcsl_sv str, char c);
 
 #ifdef __cplusplus
 }
