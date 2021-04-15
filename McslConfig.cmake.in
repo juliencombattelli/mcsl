@@ -1,0 +1,19 @@
+@PACKAGE_INIT@
+
+# Handle transitive dependencies
+# No dependencies for now
+# include(CMakeFindDependencyMacro)
+# find_dependency(Boost REQUIRED)
+
+foreach(component ${Mcsl_FIND_COMPONENTS})
+    # For requested component, execute its "config" script
+    include(
+        ${CMAKE_CURRENT_LIST_DIR}/Mcsl${component}Targets.cmake
+        RESULT_VARIABLE Mcsl_${component}_FOUND
+  )
+endforeach()
+
+# No macro file for now
+# include("${CMAKE_CURRENT_LIST_DIR}/McslMacros.cmake")
+
+check_required_components(Mcsl)
