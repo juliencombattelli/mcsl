@@ -22,14 +22,19 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 ### MCSL string_view library definition
 ################################################################################
 
-add_library(mcsl_string_view
-    include/mcsl/common.h include/mcsl/string_view.h
-    src/char_traits.h src/char_traits.c src/string_view.c
+add_library(mcsl_string_view)
+target_sources(mcsl_string_view
+    PRIVATE
+        include/mcsl/common.h
+        include/mcsl/string_view.h
+        src/string_view.c
+        src/char_traits.h
+        src/char_traits.c
 )
-set_target_properties(mcsl_string_view PROPERTIES
-    EXPORT_NAME StringView
-    PUBLIC_HEADER
-        "include/mcsl/common.h;include/mcsl/string_view.h"
+set_target_properties(mcsl_string_view
+    PROPERTIES
+        EXPORT_NAME StringView
+        PUBLIC_HEADER "include/mcsl/common.h;include/mcsl/string_view.h"
 )
 target_include_directories(mcsl_string_view
     PUBLIC

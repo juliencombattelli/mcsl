@@ -5,9 +5,9 @@ include(FetchContent)
 
 FetchContent_Declare(
     fmtlib
-    GIT_REPOSITORY  https://github.com/fmtlib/fmt.git
-    GIT_TAG         7.1.3
-    GIT_SHALLOW     TRUE
+    GIT_REPOSITORY https://github.com/fmtlib/fmt.git
+    GIT_TAG 7.1.3
+    GIT_SHALLOW TRUE
 )
 
 FetchContent_MakeAvailable(fmtlib)
