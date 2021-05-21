@@ -21,6 +21,18 @@ TEST_F(string_view_base, sv_data)
     ASSERT_EQ(mcsl_sv_data(sv), c_str);
 }
 
+TEST_F(string_view_base, sv_remove_prefix)
+{
+    mcsl_sv sv_without_prefix = mcsl_sv_remove_prefix(sv, 5);
+    ASSERT_TRUE(std::memcmp(sv_without_prefix.data, &c_str[5], sv_without_prefix.size) == 0);
+}
+
+TEST_F(string_view_base, sv_remove_suffix)
+{
+    mcsl_sv sv_without_suffix = mcsl_sv_remove_suffix(sv, 5);
+    ASSERT_TRUE(std::memcmp(sv_without_suffix.data, c_str, sv_without_suffix.size) == 0);
+}
+
 TEST_F(string_view_base, sv_ends_with__true)
 {
     mcsl_sv one_suffix = mcsl_sv_make_from_c_str("one");
