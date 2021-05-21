@@ -32,9 +32,9 @@ const char* mcsl_sv_back(mcsl_sv str);
 
 bool mcsl_sv_empty(mcsl_sv str);
 
-void mcsl_sv_remove_prefix(mcsl_sv str, size_t n);
+mcsl_sv mcsl_sv_remove_prefix(mcsl_sv str, size_t n);
 
-void mcsl_sv_remove_suffix(mcsl_sv str, size_t n);
+mcsl_sv mcsl_sv_remove_suffix(mcsl_sv str, size_t n);
 
 mcsl_sv mcsl_sv_substr(mcsl_sv str, size_t pos, size_t n);
 

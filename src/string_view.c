@@ -60,15 +60,17 @@ bool mcsl_sv_empty(mcsl_sv str)
     return str.size == 0;
 }
 
-void mcsl_sv_remove_prefix(mcsl_sv str, size_t n)
+mcsl_sv mcsl_sv_remove_prefix(mcsl_sv str, size_t n)
 {
     str.data += n;
     str.size -= n;
+    return str;
 }
 
-void mcsl_sv_remove_suffix(mcsl_sv str, size_t n)
+mcsl_sv mcsl_sv_remove_suffix(mcsl_sv str, size_t n)
 {
     str.size -= n;
+    return str;
 }
 
 mcsl_sv mcsl_sv_substr(mcsl_sv str, size_t pos, size_t n)
