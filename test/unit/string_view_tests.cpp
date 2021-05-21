@@ -91,8 +91,6 @@ TEST_F(string_view_base, sv_find_last_of__not_found)
     ASSERT_EQ(abc_index, mcsl_npos);
 }
 
-// add fuzzy tests comparing sv and std::string_view with a large range of inputs
-
 int main(int argc, char** argv)
 {
     ::testing::InitGoogleTest(&argc, argv);
