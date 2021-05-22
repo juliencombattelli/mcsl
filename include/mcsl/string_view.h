@@ -10,9 +10,7 @@ extern "C" {
 typedef struct mcsl_string_view {
     const char* data;
     size_t size;
-} mcsl_string_view;
-
-typedef mcsl_string_view mcsl_sv;
+} mcsl_sv;
 
 mcsl_sv mcsl_sv_make_from_c_str(const char* str);
 
