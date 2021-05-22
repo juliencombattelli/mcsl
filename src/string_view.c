@@ -246,3 +246,32 @@ size_t mcsl_sv_find_last_not_of(mcsl_sv str, mcsl_sv chars)
     }
     return mcsl_npos;
 }
+
+mcsl_sv_split_result mcsl_sv_split(mcsl_sv sv, mcsl_sv delims, mcsl_sv result[], size_t result_size)
+{
+    if (sv.data == NULL || result == NULL) {
+        return (mcsl_sv_split_result) { .count = 0, .stop = 0 };
+    }
+    size_t token_count = 0;
+    for (const char* it = sv.data, *prev = it; it < sv.data + sv.size + 1; ++it) {
+        bool token_found = false;
+        if (it == sv.data + sv.size) {
+            token_found = true;
+        } else for (const char* delim = delims.data; delim < delims.data + delims.size; ++delim) {
+            if (*it == *delim) {
+                token_found = true;
+                break;
+            }
+        }
+        if (token_found) {
+            if (token_count >= result_size) {
+                return (mcsl_sv_split_result) { .count = token_count, .stop = (size_t)(prev - sv.data) };
+            }
+            result[token_count].data = prev;
+            result[token_count].size = (size_t)(it - prev);
+            ++token_count;
+            prev = it+1;
+        }
+    }
+    return (mcsl_sv_split_result) { .count = token_count, .stop = sv.size };
+}

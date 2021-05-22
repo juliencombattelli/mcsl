@@ -103,6 +103,36 @@ TEST_F(string_view_base, sv_find_last_of__not_found)
     ASSERT_EQ(abc_index, mcsl_npos);
 }
 
+TEST_F(string_view_base, sv_split__delim_space) {
+    mcsl_sv tokens[8] = {0};
+    mcsl_sv_split_result result = mcsl_sv_split(sv,
+                                        mcsl_sv_make_from_c_str(" "),
+                                        tokens, sizeof(tokens)/sizeof(tokens[0]));
+    ASSERT_EQ(result.count, 4);
+    ASSERT_EQ(result.stop, mcsl_sv_size(sv));
+    ASSERT_TRUE(mcsl_sv_compare(tokens[0], mcsl_sv_make_from_c_str("Hello")) == 0);
+    ASSERT_TRUE(mcsl_sv_compare(tokens[1], mcsl_sv_make_from_c_str("world,")) == 0);
+    ASSERT_TRUE(mcsl_sv_compare(tokens[2], mcsl_sv_make_from_c_str("hello")) == 0);
+    ASSERT_TRUE(mcsl_sv_compare(tokens[3], mcsl_sv_make_from_c_str("everyone")) == 0);
+}
+
+TEST_F(string_view_base, sv_split__delim_space_o) {
+    mcsl_sv tokens[8] = {0};
+    mcsl_sv_split_result result = mcsl_sv_split(sv,
+                                        mcsl_sv_make_from_c_str(" o"),
+                                        tokens, sizeof(tokens)/sizeof(tokens[0]));
+    ASSERT_EQ(result.count, 8);
+    ASSERT_EQ(result.stop, mcsl_sv_size(sv));
+    ASSERT_TRUE(mcsl_sv_compare(tokens[0], mcsl_sv_make_from_c_str("Hell")) == 0);
+    ASSERT_TRUE(mcsl_sv_compare(tokens[1], mcsl_sv_make_from_c_str("")) == 0);
+    ASSERT_TRUE(mcsl_sv_compare(tokens[2], mcsl_sv_make_from_c_str("w")) == 0);
+    ASSERT_TRUE(mcsl_sv_compare(tokens[3], mcsl_sv_make_from_c_str("rld,")) == 0);
+    ASSERT_TRUE(mcsl_sv_compare(tokens[4], mcsl_sv_make_from_c_str("hell")) == 0);
+    ASSERT_TRUE(mcsl_sv_compare(tokens[5], mcsl_sv_make_from_c_str("")) == 0);
+    ASSERT_TRUE(mcsl_sv_compare(tokens[6], mcsl_sv_make_from_c_str("every")) == 0);
+    ASSERT_TRUE(mcsl_sv_compare(tokens[7], mcsl_sv_make_from_c_str("ne")) == 0);
+}
+
 int main(int argc, char** argv)
 {
     ::testing::InitGoogleTest(&argc, argv);

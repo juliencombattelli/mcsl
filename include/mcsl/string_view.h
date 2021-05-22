@@ -88,6 +88,15 @@ size_t mcsl_sv_find_last_not_of(mcsl_sv str, mcsl_sv chars);
 
 size_t mcsl_sv_find_last_char_different(mcsl_sv str, char c);
 
+typedef struct mcsl_string_view_split_result {
+    size_t count;
+    size_t stop;
+} mcsl_sv_split_result;
+
+mcsl_sv_split_result mcsl_sv_split(mcsl_sv sv, mcsl_sv delims, mcsl_sv result[], size_t result_size);
+
+mcsl_sv_split_result mcsl_sv_split_compressed(mcsl_sv sv, mcsl_sv delims, mcsl_sv result[], size_t result_size);
+
 #ifdef __cplusplus
 }
 #endif
