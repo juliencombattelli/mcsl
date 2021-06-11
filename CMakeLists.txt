@@ -4,8 +4,13 @@ project(Mcsl VERSION 0.1.0)
 ################################################################################
 ### Options definition
 ################################################################################
+if(CMAKE_SOURCE_DIR STREQUAL PROJECT_SOURCE_DIR)
+    set(MCSL_ENABLE_TESTING_IF_STANDALONE ON)
+else()
+    set(MCSL_ENABLE_TESTING_IF_STANDALONE OFF)
+endif()
 
-option(MCSL_ENABLE_TESTING "Enable the build of the tests" ON)
+option(MCSL_ENABLE_TESTING "Enable the build of the tests" ${MCSL_ENABLE_TESTING_IF_STANDALONE})
 option(MCSL_ENABLE_FUZZING "Enable the build of the fuzzy tests" OFF)
 
 ################################################################################
